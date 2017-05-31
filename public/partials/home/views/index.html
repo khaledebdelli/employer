@@ -1,0 +1,112 @@
+
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right" ng-if="can('Employes')">
+                            <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ui-sref="layout.employes">List des employés</a></li>
+                                <li><a ui-sref="layout.create_employes">Ajouter un employé</a></li>
+                            </ul>
+                        </div>
+
+                        <h4 class="header-title m-t-0 m-b-30">Total des employés</h4>
+
+                        <div class="widget-chart-1">
+                            <div class="widget-detail-1">
+                                <span class="badge badge-success pull-left m-t-20">{{employes}}% <i class="zmdi zmdi-trending-up"></i> </span>
+                                <h2 class="p-t-10 m-b-0"> {{employes}} </h2>
+                                <p class="text-muted">Employés</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right" ng-if="can('Leaves')">
+                            <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ui-sref="layout.leaves">List des conjés</a></li>
+                            </ul>
+                        </div>
+
+                        <h4 class="header-title m-t-0 m-b-30">Conjés</h4>
+
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <span class="badge badge-pink pull-left m-t-20">{{leaves / employes * 100}}% <i class="zmdi zmdi-trending-up"></i> </span>
+                                <h2 class="m-b-0"> {{leaves}} </h2>
+                                <p class="text-muted m-b-25">Conjés</p>
+                            </div>
+                            <div class="progress progress-bar-pink-alt progress-sm m-b-0">
+                                <div class="progress-bar progress-bar-pink" role="progressbar"
+                                     aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 77%;">
+                                    <span class="sr-only">77% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right" ng-if="can('Annonces')">
+                            <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ui-sref="layout.annonces">List des annonces</a></li>
+                            </ul>
+                        </div>
+
+                        <h4 class="header-title m-t-0 m-b-30">Annonces</h4>
+
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <h2 class="m-b-0"> {{annonces}} </h2>
+                                <p class="text-muted m-b-25">Annonces</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right" ng-if="can('Offres')">
+                            <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ui-sref="layout.offres">List des offres</a></li>
+                            </ul>
+                        </div>
+
+                        <h4 class="header-title m-t-0 m-b-30">Offres</h4>
+
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <h2 class="m-b-0"> {{offres}} </h2>
+                                <p class="text-muted m-b-25">Offres</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+            </div>
+            <!-- end row -->
+
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+

@@ -1,0 +1,98 @@
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box table-responsive">
+                    <div class="dropdown pull-left">
+                        <select class="form-control input-sm" data-ng-model="pageSize"
+                                data-ng-options="v as k for (k, v) in options"></select>
+                    </div>
+                    <div class="dropdown pull-left">
+                        <a class="btn btn-success col-md-offset-1" ui-sref="layout.create_users"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un utilistaeur</a>
+                    </div>
+
+                    <li>
+                        <form role="search" class="app-search pull-right">
+                            <input type="text" placeholder="Chercher..."
+                                   class="form-control" ng-model="search">
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </li>
+
+                    <table id="datatable" class="table table-bordered" style="margin-top: 30px">
+                <thead>
+                <tr>
+                    <th ng-click="sort('firstname')">Prénom
+                        <span class="fa fa-sort" ng-show="sortKey=='firstname'"
+                              ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                    </th>
+                    <th ng-click="sort('lastname')">Nom
+                        <span class="fa fa-sort" ng-show="sortKey=='lastname'"
+                              ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                    </th>
+                    <th ng-click="sort('username')">Nom d'utilisateur
+                        <span class="fa fa-sort" ng-show="sortKey=='username'"
+                              ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('createdAt')">date de création
+                        <span class="fa fa-sort" ng-show="sortKey=='createdAt'"
+                              ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                    </th>
+                    <th ng-click="sort('updatedAt')">date de mise à jour
+                        <span class="fa fa-sort" ng-show="sortKey=='updatedAt'"
+                              ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                    </th>
+                    <th>******</th>
+
+                </tr>
+                <tr>
+                    <th><input type="text" ng-model="firstnamesearch" class="form-control" placeholder="Prénom"></th>
+                    <th><input type="text" ng-model="lastnamesearch" class="form-control" placeholder="Nom"></th>
+                    <th><input type="text" ng-model="emailsearch" class="form-control" placeholder="Nom d'utilisateur"></th>
+                    <th><input type="text" ng-model="createdAtsearch" class="form-control" placeholder="date de création"></th>
+                    <th><input type="text" ng-model="updatedAtsearch" class="form-control" placeholder="date de mise à jour">
+                    </th>
+                    <th><input type="text" class="form-control" placeholder="" disabled></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr dir-paginate="user in users| record:'total':this  |filter:search| record:'filtered':this | orderBy:sortKey:reverse | filter:{firstname:firstnamesearch, lastname:lastnamesearch, email:emailsearch, createdAt:createdAtsearch, updatedAt:updatedAtsearch}  | itemsPerPage:pageSize|record:'page':this"
+                    current-page="currentPage">
+                    <td class="col-md-1 h5">{{ user.firstname }}</td>
+                    <td class="col-md-1 h5">{{ user.lastname }}</td>
+                    <td class="col-md-1.5 h5">{{ user.email }}</td>
+                    <td class="col-md-3 h5">{{ user.createdAt }}</td>
+                    <td class="col-md-3 h5">{{ user.updatedAt }}</td>
+                    <td class="col-md-2.5 text-center">
+                        <a href="" ng-if="user.active" ng-click="block(user.id)"
+                           class="btn btn-danger btn-sm"><span class="fa fa-stop-circle-o"></span></a>
+                        <a href="" ng-if="!user.active" ng-click="unblock(user.id)" class="btn btn-success btn-sm"><span class="fa fa-check-circle-o"></span></a>
+                        <a href="" ui-sref="layout.update_user({id:user.id})" class="btn btn-warning btn-sm"><span class="fa fa-pencil"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="pull-left" ng-cloak>
+                <b> Total </b> <span class="badge">{{total.length}}</span>
+            </div>
+            <div class="pull-right" ng-cloak>
+                <span class="badge">{{page.length}}</span> <b> de </b>
+                <span class="badge">{{filtered.length}}</span>
+            </div>
+            <div class="pagination">
+
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

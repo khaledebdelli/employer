@@ -1,0 +1,86 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+        <h3 class="tableheader">Ajouter une offre</h3>
+        <div class="panel-body">
+
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.datepublication.$touched && form.datepublication.$valid ,
+                                 'has-error': form.datepublication.$touched && form.datepublication.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Date debut </span>
+                                <input ng-model="offre.datepublication"
+                                       class="form-control" name="datepublication"
+                                       placeholder="Date Debut" type="date" required>
+                            </div>
+                            <div ng-show="form.datepublication.$invalid && form.datepublication.$touched"
+                                 class="text-danger pull-left">*La Date est requise
+                            </div>
+                            <br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.dateexpiration.$touched && form.dateexpiration.$valid ,
+                                 'has-error': form.dateexpiration.$touched && form.dateexpiration.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Date fin </span>
+                                <input ng-model="offre.dateexpiration"
+                                       class="form-control" name="dateexpiration"
+                                       placeholder="Date Fin" type="date" required>
+                            </div>
+                            <div ng-show="form.dateexpiration.$invalid && form.dateexpiration.$touched"
+                                 class="text-danger pull-left">*La  Date  est requise
+                            </div> <br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.titre.$touched && form.titre.$valid ,
+                                 'has-error': form.titre.$touched && form.titre.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Type </span>
+                                <input ng-model="offre.titre"
+                                       class="form-control" name="titre"
+                                       placeholder="titre" type="text" required>
+                            </div>
+                            <div ng-show="form.titre.$invalid && form.titre.$touched"
+                                 class="text-danger pull-left">*Le titre  est requis
+                            </div>
+                            <br>
+
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.libelle.$touched && form.libelle.$valid ,
+                                 'has-error': form.libelle.$touched && form.libelle.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Libelle </span>
+                                <input ng-model="offre.libelle"
+                                       class="form-control" name="libelle"
+                                       placeholder="libelle" type="text" required>
+                            </div>
+                            <div ng-show="form.libelle.$invalid && form.libelle.$touched"
+                                 class="text-danger pull-left">*Le libelle  est requis
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">Soumettre
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">Annuler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

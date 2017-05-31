@@ -1,0 +1,73 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+        <h3 class="tableheader">Ajouter un conjé</h3>
+        <div class="panel-body">
+
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.begindate.$touched && form.begindate.$valid ,
+                                 'has-error': form.begindate.$touched && form.begindate.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Date debut </span>
+                                <input ng-model="leave.begindate"
+                                       class="form-control" name="begindate"
+                                       placeholder="Date Debut" type="date" required>
+                            </div>
+                            <div ng-show="form.begindate.$invalid && form.begindate.$touched"
+                                 class="text-danger pull-left">*La Date debut est requise
+                            </div>
+                            <br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.enddate.$touched && form.enddate.$valid ,
+                                 'has-error': form.enddate.$touched && form.enddate.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Date fin </span>
+                                <input ng-model="leave.enddate"
+                                       class="form-control" name="enddate"
+                                       placeholder="Date Fin" type="date" required>
+                            </div>
+                            <div ng-show="form.enddate.$invalid && form.enddate.$touched"
+                                 class="text-danger pull-left">*La  Date fin  est requise
+                            </div> <br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.type.$touched && form.type.$valid ,
+                                 'has-error': form.type.$touched && form.type.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Type </span>
+                                <input ng-model="leave.type"
+                                       class="form-control" name="type"
+                                       placeholder="Type" type="text" required>
+                            </div>
+                            <div ng-show="form.type.$invalid && form.type.$touched"
+                                 class="text-danger pull-left">*Le type  est requis
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">Soumettre
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">Annuler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

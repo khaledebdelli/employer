@@ -1,0 +1,45 @@
+{
+  "name": "backoffice",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async-waterfall": "^0.1.5",
+    "body-parser": "~1.15.1",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "~1.4.3",
+    "csv-express": "^1.2.0",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-csv": "^0.6.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.14.2",
+    "fs": "0.0.1-security",
+    "jade": "~1.11.0",
+    "jqtpl": "^2.0.16-rc1",
+    "json2csv": "^3.7.0",
+    "massive": "^2.5.0",
+    "md5": "^2.2.1",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.5",
+    "mongoose": "^4.7.4",
+    "morgan": "~1.7.0",
+    "mysql": "^2.13.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4",
+    "sequelize-to-json": "^0.10.2",
+    "serve-favicon": "~2.3.0",
+    "strftime": "^0.9.2",
+    "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
+  }
+}

@@ -1,0 +1,94 @@
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                        <div class="dropdown pull-left">
+                            <select class="form-control input-sm" data-ng-model="pageSize"
+                                    data-ng-options="v as k for (k, v) in options"></select>
+                        </div>
+                        <div class="dropdown pull-left" ng-if="can('Users')">
+                            <a class="btn btn-success col-md-offset-1" ui-sref="layout.create_annonces"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter une annonce</a>
+                        </div>
+
+                        <div class="dropdown pull-right">
+                            <input type="text" id="search" ng-model="search" class="form-control input-sm"
+                                   placeholder="chercher">
+                        </div>
+
+                        <table id="datatable" class="table table-bordered" style="margin-top: 10px">
+
+                            <thead>
+                            <tr>
+                                <th ng-click="sort('id')">Num
+                                    <span class="fa fa-sort" ng-show="sortKey=='matricule'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('datepublication')">Date Pub
+                                    <span class="fa fa-sort" ng-show="sortKey=='datepublication'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('dateexpiration')">Date expi
+                                    <span class="fa fa-sort" ng-show="sortKey=='dateexpiration'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('titre')">Titre
+                                    <span class="fa fa-sort" ng-show="sortKey=='titre'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('libelle')">Libelle
+                                    <span class="fa fa-sort" ng-show="sortKey=='libelle'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('createdAt')">date de création
+                                    <span class="fa fa-sort" ng-show="sortKey=='createdAt'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-if="can('Users')"></th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr dir-paginate="annonce in annonces| record:'total':this  |filter:search| record:'filtered':this | orderBy:sortKey:reverse  | itemsPerPage:pageSize|record:'page':this"
+                                current-page="currentPage">
+                                <td>{{ annonce.id }}</td>
+                                <td>{{ annonce.datepublication }}</td>
+                                <td>{{ annonce.dateexpiration }}</td>
+                                <td>{{ annonce.titre }}</td>
+                                <td>{{ annonce.libelle }}</td>
+                                <td>{{ annonce.createdAt }}</td>
+                                <td ng-if="can('Users')" class="text-center">
+                                    <a href="" ui-sref="layout.update_annonces({id:annonce.id})"
+                                       class="btn btn-warning btn-sm"><span class="fa fa-pencil"></span></a>
+                                    <a href="" ng-click="delete(annonce.id)"
+                                       class="btn btn-danger btn-sm"><span class="fa fa-remove"></span></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="pull-left" ng-cloak>
+                            <b> Total </b> <span class="badge">{{total.length}}</span>
+                        </div>
+                        <div class="pull-right" ng-cloak>
+                            <span class="badge">{{page.length}}</span> <b> de </b>
+                            <span class="badge">{{filtered.length}}</span>
+                        </div>
+                        <div class="pagination">
+
+                            <dir-pagination-controls
+                                    max-size="5"
+                                    direction-links="true"
+                                    boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

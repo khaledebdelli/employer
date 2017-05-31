@@ -1,0 +1,100 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+            <h3 class="tableheader">Ajouter un employé</h3>
+        <div class="panel-body">
+
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form"  novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.matricule.$touched && form.matricule.$valid ,
+                                 'has-error': form.matricule.$touched && form.matricule.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Matricule </span>
+                                <input ng-model="employe.matricule"
+                                       class="form-control" name="matricule"
+                                       placeholder="matricule" type="text" required>
+                            </div>
+                            <div ng-show="form.matricule.$invalid && form.matricule.$touched" class="text-danger pull-left">*Le matricule est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.firstname.$touched && form.firstname.$valid ,
+                                 'has-error': form.firstname.$touched && form.firstname.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Prénom </span>
+                                <input ng-model="employe.firstname"
+                                       class="form-control" name="firstname"
+                                       placeholder="Prénom" type="text" required>
+                            </div>
+                            <div ng-show="form.firstname.$invalid && form.firstname.$touched" class="text-danger pull-left">*Le prénom est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.lastname.$touched && form.lastname.$valid ,
+                                 'has-error': form.lastname.$touched && form.lastname.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Nom  </span>
+                                <input ng-model="employe.lastname"
+                                       class="form-control" name="lastname"
+                                       placeholder="Nom " type="text" required>
+                            </div>
+                            <div ng-show="form.lastname.$invalid && form.lastname.$touched" class="text-danger pull-left">*Le nom est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.poste.$touched && form.poste.$valid ,
+                                 'has-error': form.poste.$touched && form.poste.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px">Poste</span>
+                                <input ng-model="employe.poste"
+                                       class="form-control" name="poste"
+                                       placeholder="Poste" type="text" required>
+                            </div>
+                            <div ng-show="form.poste.$invalid && form.poste.$touched" class="text-danger pull-left">*La poste est requise</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.status.$touched && form.status.$valid ,
+                                 'has-error': form.status.$touched && form.status.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Statut </span>
+                                <input ng-model="employe.status"
+                                       class="form-control" name="status"
+                                       placeholder="Statut" type="text" required>
+                            </div>
+                            <div ng-show="form.status.$invalid && form.status.$touched" class="text-danger pull-left">*Le statut est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.address.$touched && form.address.$valid ,
+                                 'has-error': form.address.$touched && form.address.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px">Adresse</span>
+                                <input ng-model="employe.address"
+                                       class="form-control" name="address"
+                                       placeholder="address" type="text" required>
+                            </div>
+                            <div ng-show="form.address.$invalid && form.address.$touched" class="text-danger pull-left">*L'adresse est requise</div><br>
+                            <div class="input-group" ng-class="{ 'has-success': form.sonsnbr.$touched && form.sonsnbr.$valid ,
+                                 'has-error': form.sonsnbr.$touched && form.sonsnbr.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px">Nombre des enfants </span>
+                                <input ng-model="employe.sonsnbr"
+                                       class="form-control" name="sonsnbr"
+                                       placeholder="Nombre des enfants" type="number" required>
+                            </div>
+                            <div ng-show="form.sonsnbr.$invalid && form.sonsnbr.$touched" class="text-danger pull-left">*Le nombre est requis</div><br>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">Soumettre
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">Annuler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

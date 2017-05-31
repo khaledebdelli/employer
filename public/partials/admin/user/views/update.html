@@ -1,0 +1,96 @@
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading panel-heading-custom">
+            <h1 class="panel-title">تحديث المستعمل</h1>
+        </div><br>
+        <div class="panel-body">
+        <button ng-class="{'btn btn-warning' : keepoldpass , 'btn btn-success' : !keepoldpass}" ng-click="togglekeepoldpass()">{{ keepoldpass ? 'تغيير كلملة المرور' : 'حفض كلملة المرور السابقة'}}</button>
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form" autocomplete="off" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.firstname.$touched && form.firstname.$valid ,
+                                 'has-error': form.firstname.$touched && form.firstname.$invalid }">
+                                <span class="input-group-addon"> الإسم </span>
+                                <input ng-model="user.firstname"
+                                       class="form-control" name="firstname"
+                                       placeholder="الإسم" type="text" required>
+                            </div>
+                            <span ng-show="form.firstname.$invalid && form.firstname.$touched" class="help-block pull-left">*إسم المستخدم مطلوب</span><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.lastname.$touched && form.lastname.$valid ,
+                                 'has-error': form.lastname.$touched && form.lastname.$invalid }">
+                                <span class="input-group-addon"> اللقب  </span>
+                                <input ng-model="user.lastname"
+                                       class="form-control" name="lastname"
+                                       placeholder="اللقب " type="text" required>
+                            </div>
+                            <span ng-show="form.lastname.$invalid && form.lastname.$touched" class="help-block pull-left">*الإسم مطلوب</span><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.username.$touched && form.username.$valid ,
+                                 'has-error': form.username.$touched && form.username.$invalid }">
+                                <span class="input-group-addon"> إسم المستخدم </span>
+                                <input ng-model="user.username"
+                                       class="form-control" name="username"
+                                       placeholder="إسم المستخدم " type="text" required>
+                            </div>
+                            <span ng-show="form.username.$invalid && form.username.$touched" class="help-block pull-left">*اللقب  مطلوب</span><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.email.$touched && form.email.$valid ,
+                                 'has-error': form.email.$touched && form.email.$invalid }">
+                                <span class="input-group-addon">البريد الإلكتروني</span>
+                                <input ng-model="user.email" autocomplete="off"
+                                       class="form-control" name="email"
+                                       placeholder="البريد الإلكتروني" type="email" required>
+                            </div>
+                            <span ng-show="form.email.$invalid && form.email.$touched" class="help-block pull-left">*البريد الإلكتروني  مطلوب</span><br>
+                            <div class="input-group" ng-class="{ 'has-success': form.role.$touched && form.role.$valid ,
+                                 'has-error': form.role.$touched && form.role.$invalid }">
+                                <span class="input-group-addon">الدور </span>
+                                <select name="role"
+                                        ng-model="user.role" class="form-control" required>
+                                    <option value=""></option>
+                                    <option value="admin">مشرف</option>
+                                    <option value="user">مستعمل</option>
+                                </select>
+                            </div>
+                            <span ng-show="form.role.$invalid && form.role.$touched" class="help-block pull-left">*الدور مطلوب</span><br>
+                            <div class="input-group" ng-if="keepoldpass"
+                                 ng-class="{ 'has-success': form.password.$touched && form.password.$valid ,
+                                 'has-error': form.password.$touched && form.password.$invalid }">
+                                <span class="input-group-addon">كلمة المرور</span>
+                                <input ng-model="user.password" autocomplete="off"
+                                       class="form-control" name="password"
+                                       placeholder="كلمة المرور" type="password" required>
+                            </div>
+                            <span ng-if="keepoldpass" ng-show="form.password.$invalid && form.password.$touched" class="help-block pull-left">*كلمة المرور مطلوبة</span><br>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">تحديث
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">إلغاء
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

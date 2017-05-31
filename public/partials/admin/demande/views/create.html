@@ -1,0 +1,64 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+        <h3 class="tableheader">Ajouter une demande</h3>
+        <div class="panel-body">
+
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.montant.$touched && form.montant.$valid ,
+                                 'has-error': form.montant.$touched && form.montant.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Montant </span>
+                                <input ng-model="demande.montant"
+                                       class="form-control" name="montant"
+                                       placeholder="montant" type="number" required>
+                            </div>
+                            <div ng-show="form.montant.$invalid && form.montant.$touched"
+                                 class="text-danger pull-left">*Le montant  est requis
+                            </div>
+                            <br>
+
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.cause.$touched && form.cause.$valid ,
+                                 'has-error': form.cause.$touched && form.cause.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Cause </span>
+                                <input ng-model="demande.cause"
+                                       class="form-control" name="cause"
+                                       placeholder="cause" type="text" required>
+                            </div>
+                            <div ng-show="form.cause.$invalid && form.cause.$touched"
+                                 class="text-danger pull-left">*La cause  est requis
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">Soumettre
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">Annuler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

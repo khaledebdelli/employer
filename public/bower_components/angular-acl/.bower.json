@@ -1,0 +1,38 @@
+{
+  "name": "angular-acl",
+  "version": "0.1.9",
+  "homepage": "https://github.com/mikemclin/angular-acl",
+  "authors": [
+    "Mike McLin <mclinmike@gmail.com>"
+  ],
+  "description": "Role-based permissions for AngularJS",
+  "main": "angular-acl.js",
+  "keywords": [
+    "acl",
+    "permissions",
+    "roles",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.0",
+    "angular-mocks": "~1.4.0"
+  },
+  "_release": "0.1.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.9",
+    "commit": "8aa56f0aba2c1bd31e11068425cc9a429d745ce8"
+  },
+  "_source": "https://github.com/mikemclin/angular-acl.git",
+  "_target": "^0.1.9",
+  "_originalSource": "angular-acl",
+  "_direct": true
+}

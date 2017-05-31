@@ -1,0 +1,97 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+            <h3 class="tableheader">Ajouter un utilisateur</h3>
+        <div class="panel-body">
+
+            <form class="form-horizontal" ng-submit="send(form.$valid)" name="form"  novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="input-group" ng-class="{ 'has-success': form.resource.$touched && form.resource.$valid ,
+                                 'has-error': form.resource.$touched && form.resource.$invalid }">
+                                <div class="input-group">
+                                    <label class="input-group-addon" style="min-width: 150px">Resource &nbsp;</label>
+                                    <button type="button" class="btn btn-default" ng-model="user.resource" data-html="1" data-multiple="1" data-animation="am-flip-x" bs-options="resource.value as resource.label for resource in resources" bs-select>
+                                        Action <span class="caret"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div ng-show="form.resource.$invalid && form.resource.$touched" class="text-danger pull-left">*Le resource est requis</div><br>
+                            <div class="input-group" ng-class="{ 'has-success': form.role.$touched && form.role.$valid ,
+                                 'has-error': form.role.$touched && form.role.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px">Role </span>
+                                <select name="role"
+                                        ng-model="user.role" class="form-control" required>
+                                    <option value=""></option>
+                                    <option value="admin">Administrateur</option>
+                                    <option value="employe">Employé</option>
+                                </select>
+                            </div>
+                            <div ng-show="form.role.$invalid && form.role.$touched" class="text-danger pull-left">*Le role est requis</div><br>
+
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.firstname.$touched && form.firstname.$valid ,
+                                 'has-error': form.firstname.$touched && form.firstname.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Prénom </span>
+                                <input ng-model="user.firstname"
+                                       class="form-control" name="firstname"
+                                       placeholder="Prénom" type="text" required>
+                            </div>
+                            <div ng-show="form.firstname.$invalid && form.firstname.$touched" class="text-danger pull-left">*Le prénom est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.lastname.$touched && form.lastname.$valid ,
+                                 'has-error': form.lastname.$touched && form.lastname.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Nom  </span>
+                                <input ng-model="user.lastname"
+                                       class="form-control" name="lastname"
+                                       placeholder="Nom " type="text" required>
+                            </div>
+                            <div ng-show="form.lastname.$invalid && form.lastname.$touched" class="text-danger pull-left">*Le nom est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.email.$touched && form.email.$valid ,
+                                 'has-error': form.email.$touched && form.email.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px"> Nom d'utilisateur </span>
+                                <input ng-model="user.email"
+                                       class="form-control" name="email"
+                                       placeholder="Nom d'utilisateur" type="text" required>
+                            </div>
+                            <div ng-show="form.email.$invalid && form.email.$touched" class="text-danger pull-left">*Le nom d'utilisateur est requis</div><br>
+                            <div class="input-group"
+                                 ng-class="{ 'has-success': form.password.$touched && form.password.$valid ,
+                                 'has-error': form.password.$touched && form.password.$invalid }">
+                                <span class="input-group-addon" style="min-width: 150px">Mot de passe</span>
+                                <input ng-model="user.password" autocomplete="new-password"
+                                       class="form-control" name="password"
+                                       placeholder="password" type="password" required>
+                            </div>
+                            <div ng-show="form.password.$invalid && form.password.$touched" class="text-danger pull-left">*Mot de passe requis</div><br>
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="btn-block">
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button ng-disabled="form.$invalid"
+                                        type="submit" id="button1id" name="button1id" ng-click="Submit()"
+                                        ng-class="{ 'btn btn-lg btn-block btn-primary': form.$valid ,
+                                 'btn btn-lg btn-block btn-danger': form.$invalid }">Soumettre
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="cancel()" type="reset" id="button2id" name="button2id"
+                                        class="btn btn-lg btn-block btn-default ">Annuler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

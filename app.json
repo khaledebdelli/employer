@@ -1,0 +1,12 @@
+{
+    apps : [{
+      "script"    : "app.js",
+      "env": {
+            "PORT": "8123",
+            "DEBUG": "*"
+        },
+        "env_production" : {
+            "NODE_ENV": "production"
+        }
+    }]
+}

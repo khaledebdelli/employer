@@ -1,0 +1,112 @@
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                        <div class="dropdown pull-left">
+                            <select class="form-control input-sm" data-ng-model="pageSize"
+                                    data-ng-options="v as k for (k, v) in options"></select>
+                        </div>
+                        <div class="dropdown pull-left">
+                            <a class="btn btn-success col-md-offset-1" ui-sref="layout.create_employes"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un employe</a>
+                        </div>
+
+                        <div class="dropdown pull-right">
+                            <input type="text" id="search" ng-model="search" class="form-control input-sm"
+                                   placeholder="chercher">
+                        </div>
+
+                        <table id="datatable" class="table table-bordered" style="margin-top: 10px">
+
+                            <thead>
+                            <tr>
+                                <th ng-click="sort('matricule')">Matricule
+                                    <span class="fa fa-sort" ng-show="sortKey=='matricule'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('firstname')">Prénom
+                                    <span class="fa fa-sort" ng-show="sortKey=='firstname'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('lastname')">Nom
+                                    <span class="fa fa-sort" ng-show="sortKey=='lastname'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('status')">Statut
+                                    <span class="fa fa-sort" ng-show="sortKey=='status'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('address')">Adresse
+                                    <span class="fa fa-sort" ng-show="sortKey=='address'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th ng-click="sort('createdAt')">date de création
+                                    <span class="fa fa-sort" ng-show="sortKey=='createdAt'"
+                                          ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                                </th>
+                                <th></th>
+
+                            </tr>
+                            <tr>
+                                <th><input type="text" ng-model="matriculesearch" class="form-control"
+                                           placeholder="Matricule"></th>
+                                <th><input type="text" ng-model="firstnamesearch" class="form-control"
+                                           placeholder="Prénom"></th>
+                                <th><input type="text" ng-model="lastnamesearch" class="form-control" placeholder="Nom">
+                                </th>
+                                <th><input type="text" ng-model="statussearch" class="form-control"
+                                           placeholder="Status"></th>
+                                <th><input type="text" ng-model="addresstsearch" class="form-control"
+                                           placeholder="Adresse">
+                                <th><input type="text" ng-model="createdAtsearch" class="form-control"
+                                           placeholder="date de création"></th>
+                                <th><input type="text" class="form-control" placeholder="" disabled></th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr dir-paginate="employe in employes| record:'total':this  |filter:search| record:'filtered':this | orderBy:sortKey:reverse | filter:{matricule:matriculesearch,firstname:firstnamesearch, lastname:lastnamesearch, status:statussearch, address:addresssearch, createdAt:createdAtsearch}  | itemsPerPage:pageSize|record:'page':this"
+                                current-page="currentPage">
+                                <td>{{ employe.matricule }}</td>
+                                <td>{{ employe.firstname }}</td>
+                                <td>{{ employe.lastname }}</td>
+                                <td>{{ employe.status }}</td>
+                                <td>{{ employe.address }}</td>
+                                <td>{{ employe.createdAt }}</td>
+                                <td class="text-center">
+                                    <a href="" ui-sref="layout.update_employes({id:employe.id})"
+                                       class="btn btn-warning btn-sm"><span class="fa fa-pencil"></span></a>
+                                    <a href="" ng-click="delete(employe.id)"
+                                       class="btn btn-danger btn-sm"><span class="fa fa-remove"></span></a>
+                                    <a href="" ui-sref="layout.create_leaves({id:employe.id})"
+                                       class="btn btn-success btn-sm"><span class="fa fa-plus-circle"></span></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="pull-left" ng-cloak>
+                            <b> Total </b> <span class="badge">{{total.length}}</span>
+                        </div>
+                        <div class="pull-right" ng-cloak>
+                            <span class="badge">{{page.length}}</span> <b> de </b>
+                            <span class="badge">{{filtered.length}}</span>
+                        </div>
+                        <div class="pagination">
+
+                            <dir-pagination-controls
+                                    max-size="5"
+                                    direction-links="true"
+                                    boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

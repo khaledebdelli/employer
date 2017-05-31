@@ -1,0 +1,102 @@
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box table-responsive">
+                    <div class="dropdown pull-left">
+                        <select class="form-control input-sm" data-ng-model="pageSize"
+                                data-ng-options="v as k for (k, v) in options"></select>
+                    </div>
+
+
+                    <div class="dropdown pull-right">
+                        <input type="text" id="search" ng-model="search" class="form-control input-sm"
+                               placeholder="chercher">
+                    </div>
+
+                    <table id="datatable" class="table table-bordered" style="margin-top: 10px">
+
+                        <thead>
+                        <tr>
+                            <th ng-click="sort('begindate')">Date début
+                                <span class="fa fa-sort" ng-show="sortKey=='begindate'"
+                                      ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                            </th>
+                            <th ng-click="sort('enddate')">Date fin
+                                <span class="fa fa-sort" ng-show="sortKey=='enddate'"
+                                      ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                            </th>
+                            <th ng-click="sort('type')">Type
+                                <span class="fa fa-sort" ng-show="sortKey=='type'"
+                                      ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                            </th>
+                            <th ng-click="sort('decision')">Decision
+                                <span class="fa fa-sort" ng-show="sortKey=='decision'"
+                                      ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="sort('createdAt')">date de création
+                                <span class="fa fa-sort" ng-show="sortKey=='createdAt'"
+                                      ng-class="{'fa fa-chevron-up':reverse,'fa fa-chevron-down':!reverse}"></span>
+
+                            </th>
+                            <th ng-if="can('Employes')"></th>
+
+                        </tr>
+                        <tr>
+                            <th><input type="text" ng-model="search1" class="form-control"
+                                       placeholder="Date debut"></th>
+                            <th><input type="text" ng-model="search2" class="form-control"
+                                       placeholder="Date fin"></th>
+                            <th><input type="text" ng-model="search3" class="form-control" placeholder="type">
+                            </th>
+                            <th><input type="text" ng-model="search4" class="form-control"
+                                       placeholder="decision"></th>
+                            <th><input type="text" ng-model="createdAtsearch" class="form-control"
+                                       placeholder="date de création"></th>
+                            <th ng-if="can('Employes')"><input type="text" class="form-control" placeholder="" disabled></th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr dir-paginate="leave in leaves| record:'total':this  |filter:search| record:'filtered':this | orderBy:sortKey:reverse | filter:{begindate:search1,enddate:search2, type:search3, decision:search4, createdAt:createdAtsearch}  | itemsPerPage:pageSize|record:'page':this"
+                            current-page="currentPage">
+                            <td>{{ leave.begindate }}</td>
+                            <td>{{ leave.enddate }}</td>
+                            <td>{{ leave.type }}</td>
+                            <td>{{ leave.decision }}</td>
+                            <td>{{ leave.createdAt }}</td>
+                            <td class="text-center" ng-if="can('Employes')">
+                                <a href="" ui-sref="layout.update_leaves({id:leave.id})"
+                                   class="btn btn-warning btn-sm"><span class="fa fa-pencil"></span></a>
+                                <a href="" ng-click="delete(leave.id)"
+                                   class="btn btn-danger btn-sm"><span class="fa fa-remove"></span></a>
+                                <a href="" ng-click="confirm(leave.id)"
+                                   class="btn btn-info btn-sm"><span class="fa fa-check-circle"></span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="pull-left" ng-cloak>
+                        <b> Total </b> <span class="badge">{{total.length}}</span>
+                    </div>
+                    <div class="pull-right" ng-cloak>
+                        <span class="badge">{{page.length}}</span> <b> de </b>
+                        <span class="badge">{{filtered.length}}</span>
+                    </div>
+                    <div class="pagination">
+
+                        <dir-pagination-controls
+                                max-size="5"
+                                direction-links="true"
+                                boundary-links="true">
+                        </dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+
+        <!-- User -->
+        <div class="user-box">
+            <div class="user-img">
+                <img src="../assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
+            </div>
+            <h5><a href="#">{{user.firstname}} : {{ user.role[0]}}</a> </h5>
+            <ul class="list-inline">
+                <li>
+                    <a href="#" >
+                        <i class="zmdi zmdi-settings"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a ng-click='logout()' class="text-custom">
+                        <i class="zmdi zmdi-power"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End User -->
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <ul>
+                <li class="text-muted menu-title">Navigation</li>
+
+                <li ng-if="can('Home')">
+                    <a ui-sref="layout.home" ng-class="{active: activeRoute == 'home'}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                </li>
+
+                <li ng-if="can('Users')">
+                    <a ui-sref="layout.users" ng-class="{active: activeRoute == 'users'}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Utilisateurs </span> </a>
+                </li>
+
+                <li ng-if="can('Employes')" class="has_sub">
+                    <a ui-sref="layout.employes" ng-class="{active: activeRoute == 'employes'}" class="waves-effect"><i class="zmdi zmdi-collection-text"></i><span> Employés </span> </a>
+                </li>
+
+                <li ng-if="can('Annonces')" class="has_sub">
+                    <a ui-sref="layout.annonces" ng-class="{active: activeRoute == 'annonces'}" class="waves-effect"><i class="zmdi zmdi-collection-text"></i><span> Annonces </span> </a>
+                </li>
+                <li ng-if="can('Offres')" class="has_sub">
+                    <a ui-sref="layout.offres" ng-class="{active: activeRoute == 'offres'}" class="waves-effect"><i class="zmdi zmdi-collection-text"></i><span> Offres </span> </a>
+                </li>
+                <li ng-if="can('Demandes')" class="has_sub">
+                    <a ui-sref="layout.demandes" ng-class="{active: activeRoute == 'demandes'}" class="waves-effect"><i class="zmdi zmdi-collection-text"></i><span> Demandes </span> </a>
+                </li>
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <!-- Sidebar -->
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>
+<!-- Left Sidebar End -->
