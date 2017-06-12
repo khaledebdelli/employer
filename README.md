@@ -10,5 +10,6 @@ Things you may want to cover:<br/>
 <li>Bootstarp3</li>
 <li>HTML5</li>
 <li>CSS3</li>
-<li>TEST</li>
+<li>Run: node bin/www</li>
+<li>Run: node app</li>
 </ul>
