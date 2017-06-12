@@ -20,7 +20,7 @@ module.exports = (router, passport) => {
 
     // On our router variable, we'll be able to include various methods. For our app we'll only make use of GET requests, so the method router.get will handle that interaction. This method takes a string as its first parameter and that is the url path, so for the first route we are just giving it '/', which means the default route. Next we are defining a Node Js callback function, that takes three parameters, a request (req), a response (res), and an optional next (next) parameter. Finally, in our callback function, we are just send the message "You are on the homepage".
     router.get('/api', (req, res) => res.status(200).send({
-        message: 'Welcome to the Mint API!',
+        message: 'Welcome to the API!',
     }));
 
 
